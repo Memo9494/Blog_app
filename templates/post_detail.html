@@ -1,7 +1,12 @@
 {% extends 'base.html'%}
 {% block content %}
     <div class="post-entry">
-        <h2>{{ post_obj.title }} </h2> write a comment here <!-- or use object.title-->	
+        <h2>{{ post_obj.title }} </h2> 
         <p>{{post_obj.body}}</p> <!-- or use object.body-->
-    </div>¨
+        <!-- add an image -->
+        <img src="{{post_obj.image.url}}" alt="image" width="300" height="300">
+    </div>
+    <p><a href="{% url 'post_edit' post_obj.pk %}">+ Edit Blog Post</a></p>
+    <p><a href="{%url 'post_delete' post_obj.pk%}">- Delete Blog Post</a></p>
 {% endblock content%}
+
